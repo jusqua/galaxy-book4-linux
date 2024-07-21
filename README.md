@@ -8,3 +8,4 @@ Running Fedora 40 on my Samsung Galaxy Book2 Pro (NP750XGJ-KG2BR).
 - Dedicated buttons does not works (probably ACPI dedicated buttons, can be rebinded in some useful way)
 - When integrated monitor brightness changes the system struggles
 - Intel Xe Iris not seem to be activated, in the setting shows in graphics section **Intel® Graphics (RPL-U)** instead of **Intel® Iris® Xe Graphics**
+- Slow charging, needs to plug charger before boot to be able to fast charge
