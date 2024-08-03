@@ -10,3 +10,4 @@ Running Fedora 40 on my Samsung Galaxy Book4 (NP750XGJ-KG2BR).
 - Intel Xe Iris not seem to be activated, in the setting shows in graphics section **Intel® Graphics (RPL-U)** instead of **Intel® Iris® Xe Graphics**, maybe not related but can be associated with Xe Iris "poor implementation"?
 - Slow charging, needs to plug charger before boot to be able to fast charge
 - Sometimes boot slowly accusing `ACPI Error` and in boot logs
+- Slow wakeup from sleep, takes from 1s to 20s to wakeup
