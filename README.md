@@ -8,7 +8,7 @@ Running Fedora 40 on my Samsung Galaxy Book4 ([NP750XGJ-KG2BR](https://www.samsu
 
 The problem is solved when the firmware is updated. You can update to the latest version through Windows Update.
 
-If no Windows installed or firmware can be updated, see Issue [#1](https://github.com/jusqua/galaxy-book4-linux/issues/1) to see a workaround.
+If no Windows is installed or firmware can't be updated, see issue [#1](https://github.com/jusqua/galaxy-book4-linux/issues/1) for a workaround.
 
 ### ACPI dedicated hotkeys (Power profiles, Allow recording and Fn Lock) and platform settings
 
