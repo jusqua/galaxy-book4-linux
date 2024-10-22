@@ -15,7 +15,6 @@ If no Windows is installed or firmware can't be updated, see issue [#1](https://
 The latest firmware is needed, so update through Windows Update.
 
 See the [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras) platform driver to enable platform hotkeys and settings.
-For now the `SAM0430` ACPI device is not listed in the platform driver ACPI devices ID list, but I opened a [pull request](https://github.com/joshuagrisham/samsung-galaxybook-extras/pull/38) for this.
 
 ## Known issues
 
@@ -24,6 +23,8 @@ For now the `SAM0430` ACPI device is not listed in the platform driver ACPI devi
 The built-in speaker volume is almost inaudible when lower than 20%.
 
 The same issue occurs when using a Samsung USB-C Earphone for some reason.
+
+Maybe [this discussion](https://github.com/thesofproject/linux/issues/4055) is useful to find a way to solve the problem.
 
 ### Built-in monitor screen brightness changes struggles
 
