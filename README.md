@@ -34,7 +34,7 @@ See the [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-gal
 
 The built-in speaker volume is almost inaudible when lower than 20%.
 
-The same issue occurs when using a Samsung USB-C Earphone for some reason.
+The same issue occurs when using a Samsung USB-C Earphone, both speakers and earphone are manufatured by AKG.
 
 Maybe [this discussion](https://github.com/thesofproject/linux/issues/4055) is useful to find a way to solve the problem.
 
