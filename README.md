@@ -1,6 +1,18 @@
 # Samsung Galaxy Book4 for Linux
 
-Running Fedora 40 on my Samsung Galaxy Book4 ([NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/)).
+Running Fedora 41 KDE Spin on my Samsung Galaxy Book4 ([NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/buy)).
+
+## Benchmarks
+
+Those benchmarks are made with [Geekbench 6](https://www.geekbench.com/), comparing Windows 11 23h2 and Fedora 41 KDE Spin:
+- [CPU](https://browser.geekbench.com/v6/cpu/compare/8575258?baseline=8570923)
+- [Vulkan](https://browser.geekbench.com/v6/compute/compare/3030419?baseline=3031886)
+- [OpenCL](https://browser.geekbench.com/v6/compute/compare/3030439?baseline=3031877)
+
+Only Vulkan and OpenCL benchmarks are outliers results, probably because Xe Iris Kernel Modules still in early development and the Linux Kernel use i915 Kernel Module by default.
+Even if `xe.force_probe=XXXX` and `i915.force_probe=!XXXX` are used as kernel parameters the results are worst than leave the default values.
+
+The only way is wait for new kernel module update in Linux Kernel.
 
 ## Solutions
 
