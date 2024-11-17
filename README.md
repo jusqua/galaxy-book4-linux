@@ -9,10 +9,16 @@ Those benchmarks are made with [Geekbench 6](https://www.geekbench.com/), compar
 - [Vulkan](https://browser.geekbench.com/v6/compute/compare/3030419?baseline=3031886)
 - [OpenCL](https://browser.geekbench.com/v6/compute/compare/3030439?baseline=3031877)
 
-Only Vulkan and OpenCL benchmarks are outliers results, probably because Xe Iris Kernel Modules still in early development and the Linux Kernel use i915 Kernel Module by default.
-Even if `xe.force_probe=XXXX` and `i915.force_probe=!XXXX` are used as kernel parameters the results are worst than leave the default values.
+Vulkan and OpenCL benchmarks are outliers results, probably because:
+- Xe Iris Kernel Modules still in early development and the Linux Kernel use i915 Kernel Module by default; or
+- The Samsung custom firmware makes a lot of changes to perform better on Windows, and worst on Linux.
 
-The only way is wait for new kernel module update in Linux Kernel.
+Another point is: Vulkan score > OpenCL score, they are not even equal on Windows and some benchmarks shows that OpenCL poorly works.
+> I working on a university research using [OpenCL](https://github.com/jusqua/visiongl) and [SYCL](https://github.com/jusqua/visionsycl) to benchmark image processing algorithms with parallel computing.
+> For some reason, OpenCL does not perform as expected and using the algorithms running on Host (CPU) results in 20 times faster than running on OpenCL device (CPU or GPU).
+> For this reason, I using friends devices to perform the benchmarks for me.
+
+For now, the only way is wait for new kernel module update in Linux Kernel and the Samsung to provides a new firmware to solve those problems.
 
 ## Solutions
 
