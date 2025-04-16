@@ -1,50 +1,89 @@
 # Samsung Galaxy Book4 for Linux
 
-Running Fedora 41 KDE Spin on my Samsung Galaxy Book4 ([NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/buy)).
+This repository merge information about my Linux usage with Samsung Galaxy Book4 (Base model [NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/buy)).
 
-## Benchmarks
+I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks.
 
-Those benchmarks are made with [Geekbench 6](https://www.geekbench.com/), comparing Windows 11 23h2 and Fedora 41 KDE Spin:
-- [CPU](https://browser.geekbench.com/v6/cpu/compare/8575258?baseline=8570923)
-- [Vulkan](https://browser.geekbench.com/v6/compute/compare/3030419?baseline=3031886)
-- [OpenCL](https://browser.geekbench.com/v6/compute/compare/3030439?baseline=3031877)
-
-Vulkan and OpenCL benchmarks are outliers results, probably because:
-- Xe Iris Kernel Modules still in early development and the Linux Kernel use i915 Kernel Module by default; or
-- The Samsung custom firmware makes a lot of changes to perform better on Windows, and worst on Linux.
-
-Another point is: Vulkan score > OpenCL score, they are not even equal on Windows and some benchmarks shows that OpenCL poorly works.
-> I working on a university research using [OpenCL](https://github.com/jusqua/visiongl) and [SYCL](https://github.com/jusqua/visionsycl) to benchmark image processing algorithms with parallel computing.
-> For some reason, OpenCL does not perform as expected and using the algorithms running on Host (CPU) results in 20 times faster than running on OpenCL device (CPU or GPU).
-> For this reason, I using friends devices to perform the benchmarks for me.
-
-For now, the only way is wait for new kernel module update in Linux Kernel and the Samsung to provides a new firmware to solve those problems.
-
-## Solutions
-
-### Really slow charging / Almost no charging rate / Slow wake from sleep
-
-The problem is solved when the firmware is updated. You can update to the latest version through Windows Update.
-
-If no Windows is installed or firmware can't be updated, see issue [#1](https://github.com/jusqua/galaxy-book4-linux/issues/1) for a workaround.
-
-### ACPI dedicated hotkeys (Power profiles, Allow recording and Fn Lock) and platform settings
-
-The latest firmware is needed, so update through Windows Update.
-
-See the [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras) platform driver to enable platform hotkeys and settings.
+> [!IMPORTANT]
+> If you find another issues or solution for these problems, let me know! Contributions are welcome!
 
 ## Known issues
 
+### Really slow charging / Slow wake from sleep
+
+#### Description
+- AC adapter provides small charging rate while in Linux;
+- Pluging AC adapter before Linux boot provides the "correct" charge rate. 
+
+#### Solution
+1. Firmware update through Windows Update; or
+2. Add kernel parameters to change ACPI behavior (see [related discussion](https://github.com/jusqua/galaxy-book4-linux/discussions/2)).
+
+---
+
+### Fn hotkeys and platform-specific settings doesn't works
+
+#### Description
+- Some Fn keys are related to the platform:
+  - `Fn + Esc` for Open Samsung Assistance;
+  - `Fn + F1` for Open Settings App;
+  - `Fn + F5` for Enable/Disable Touchpad;
+  - `Fn + F10` for Enable/Disable Mic and Webcam;
+  - `Fn + F11` for Change Platform Power Profiles;
+  - `Fn + F12` for Enable/Disable Fn Key Lock.
+- Cannot read or control fans.
+- Cannot change battery charge end threshold, aka Battery Protection.
+
+#### Solution
+- Firmware update through Windows Update; and/or
+  1. Use kernel version >= 6.15; or
+  2. Build and install [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras) kernel module against kernel version < 6.15;
+
+---
+
 ### Built-in speakers volume are too quiet
 
-The built-in speaker volume is almost inaudible when lower than 20%.
+#### Description
+- Built-in speaker is inaudible when volume is lower than 10%.
 
-The same issue occurs when using a Samsung USB-C Earphone, both speakers and earphone are manufatured by AKG.
+#### Thoughts
+- The same issue occurs when using a Samsung USB-C Earphone in any device, both speakers and earphone are manufatured by AKG.
+- Maybe [this discussion](https://github.com/thesofproject/linux/issues/4055) is useful to find a way to solve the problem.
 
-Maybe [this discussion](https://github.com/thesofproject/linux/issues/4055) is useful to find a way to solve the problem.
+---
 
 ### Built-in monitor screen brightness changes struggles
 
-When the screen brightness change hotkey is pressed the screen brightness takes a second to apply.
-If the hotkey is kept pressed the brightness screen intensity jumps to a higher intensity instead of increasing gradually.
+#### Description
+- When the screen brightness change hotkey is pressed the screen brightness takes a second to apply.
+- If the hotkey is kept pressed the brightness screen intensity jumps to a higher intensity instead of increasing gradually.
+
+#### Thoughts
+- It works normally when using an external keyboard shortcut to change the screen brightness.
+
+---
+
+### Battery disconnects from AC when fully charged
+
+#### Description
+- While the AC adapter is plugged and the battery is already full, intermittently, the AC disconnects from battery than reconnects again.
+
+#### Thoughts
+- This occurs since firmware update `P07CFP.020.250208.HQ`.
+
+---
+
+### Intel Xe Iris have ~50% less GPU performance compared to Windows 11
+
+#### Benchmark
+- [Geekbench 6](https://www.geekbench.com/) Windows 11 Pro 23h2 vs Fedora 41 KDE Plasma:
+  - [Vulkan](https://browser.geekbench.com/v6/compute/compare/3030419?baseline=3031886)
+  - [OpenCL](https://browser.geekbench.com/v6/compute/compare/3030439?baseline=3031877)
+
+#### Description
+- GPU intensive apps struggles to open and run (e.g. games, video editor);
+- Parallel computing display lower score.
+
+#### Thoughts
+- Xe Iris kernel modules still in early development and the Linux kernel still using i915 kernel module by default; and/or
+- The Samsung custom firmware makes a lot of changes to perform better on Windows, and not perform well on Linux, i.e. no platform support yet.
