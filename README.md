@@ -33,11 +33,15 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
   - `Fn + F12` for Enable/Disable Fn Key Lock.
 - Cannot read or control fans.
 - Cannot change battery charge end threshold, aka Battery Protection.
+- Power profiles controls (Performance and energy control).
 
 #### Solution
 - Firmware update through Windows Update; and/or
-  1. Use kernel version >= 6.15; or
+  1. Use build kernel version >= 6.15 with `Samsung Galaxy Book` module enabled; or
   2. Build and install [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras) kernel module against kernel version < 6.15;
+
+#### Thoughts
+- This solution also solves bad energy management and GPU performance issues.
 
 ---
 
@@ -70,6 +74,7 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 
 #### Thoughts
 - This occurs since firmware update `P07CFP.020.250208.HQ`.
+- 
 
 ---
 
@@ -87,3 +92,4 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 #### Thoughts
 - Xe Iris kernel modules still in early development and the Linux kernel still using i915 kernel module by default; and/or
 - The Samsung custom firmware makes a lot of changes to perform better on Windows, and not perform well on Linux, i.e. no platform support yet.
+- The `Samsung Galaxy Book` kernel module solves bad energy management and GPU performance issues.
