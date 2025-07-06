@@ -4,8 +4,13 @@ This repository merge information about my Linux usage with Samsung Galaxy Book4
 
 I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks.
 
+> [!NOTE]
+> If you find another issues or solution for every variant ("Base", Pro, 360, 360 Pro, Ultra), let us know! Contributions are welcome!
+
 > [!IMPORTANT]
-> If you find another issues or solution for these problems, let me know! Contributions are welcome!
+> Some problems were fixed by updating the device firmware, and it's only available through Windows Update.
+> 
+> Keeping dual boot with Windows it's a good catch, at least till the device is not supported by the OEM (Samsung).
 
 ## Known issues
 
@@ -36,12 +41,10 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 - Power profiles controls (Performance and energy control).
 
 #### Solution
-- Firmware update through Windows Update; and/or
-  1. Use build kernel version >= 6.15 with `Samsung Galaxy Book` module enabled; or
-  2. Build and install [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras) kernel module against kernel version < 6.15;
+- Use Linux kernel version since 6.15; or build and install [samsung-galaxybook-extras](https://github.com/joshuagrisham/samsung-galaxybook-extras/tree/pre-6.14) kernel module against kernel version < 6.15;
 
 #### Thoughts
-- This solution also solves bad energy management and GPU performance issues.
+- This solution also solves bad energy management and some GPU performance issues related to power profiles.
 
 ---
 
@@ -74,7 +77,7 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 
 #### Thoughts
 - This occurs since firmware update `P07CFP.020.250208.HQ`.
-- 
+- The charge cable can with malfunction.
 
 ---
 
