@@ -81,18 +81,15 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 
 ---
 
-### Intel Xe Iris have ~50% less GPU performance compared to Windows 11
-
-#### Benchmark
-- [Geekbench 6](https://www.geekbench.com/) Windows 11 Pro 23h2 vs Fedora 41 KDE Plasma:
-  - [Vulkan](https://browser.geekbench.com/v6/compute/compare/3030419?baseline=3031886)
-  - [OpenCL](https://browser.geekbench.com/v6/compute/compare/3030439?baseline=3031877)
+### Vulkan on Intel Iris Xe Graphics on Linux have massively less GPU performance compared to Windows 11
 
 #### Description
-- GPU intensive apps struggles to open and run (e.g. games, video editor);
-- Parallel computing display lower score.
+[Geekbench 6](https://www.geekbench.com/) Windows 11 Pro vs Fedora 42 [Vulkan benchmark](https://browser.geekbench.com/v6/compute/compare/4174172?baseline=4969284)
+
+- Any app that uses Vulkan natively or uses some kind of Vulkan-based translation layer: struggles, have really low performance, and/or have high latency.
 
 #### Thoughts
-- Xe Iris kernel modules still in early development and the Linux kernel still using i915 kernel module by default; and/or
-- The Samsung custom firmware makes a lot of changes to perform better on Windows, and not perform well on Linux, i.e. no platform support yet.
-- The `Samsung Galaxy Book` kernel module solves bad energy management and GPU performance issues.
+- As I can see there is no real effort to solve Xe/Xe-LP/iGPU problems, and [Intel will focus on improving Xe-LPG+/dGPU even on Windows](https://www.phoronix.com/news/Intel-11th-14th-Gen-Legacy-Drv), so I don't know if it can be solved.
+- The `Samsung Galaxy Book` kernel module solves bad energy management and GPU performance issues (available since kernel 6.15).
+- ~Xe kernel module still in early development and the Linux kernel still using i915 kernel module by default; and/or~
+- ~The Samsung custom firmware makes a lot of changes to perform better on Windows, and not perform well on Linux, i.e. no platform support yet.~
