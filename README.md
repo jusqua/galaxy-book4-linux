@@ -2,7 +2,7 @@
 
 This repository merge information about my Linux usage with Samsung Galaxy Book4 (Base model [NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/buy)).
 
-I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks.
+I'm using Fedora 43 KDE Edition to daily driver, and perform test and benchmarks.
 
 > [!NOTE]
 > If you find another issues or solution for every variant ("Base", Pro, 360, 360 Pro, Ultra), let us know! Contributions are welcome!
@@ -91,5 +91,6 @@ I'm using Fedora 42 KDE Edition to daily driver, and perform test and benchmarks
 #### Thoughts
 - As I can see there is no real effort to solve Xe/Xe-LP/iGPU problems, and [Intel will focus on improving Xe-LPG+/dGPU even on Windows](https://www.phoronix.com/news/Intel-11th-14th-Gen-Legacy-Drv), so I don't know if it can be solved.
 - The `Samsung Galaxy Book` kernel module solves bad energy management and GPU performance issues (available since kernel 6.15).
+- Forcing Xe kernel module now provides the same experience as i915 module, i.e. no strange gliches when booting or running apps.
 - ~Xe kernel module still in early development and the Linux kernel still using i915 kernel module by default; and/or~
 - ~The Samsung custom firmware makes a lot of changes to perform better on Windows, and not perform well on Linux, i.e. no platform support yet.~
