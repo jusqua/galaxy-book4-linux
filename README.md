@@ -2,7 +2,7 @@
 
 This repository merge information about my Linux usage with Samsung Galaxy Book4 (Base model [NP750XGJ-KG2BR](https://www.samsung.com/br/computers/samsung-book/galaxy-book4-15-6-inch-i5-16gb-512gb-np750xgj-kg2br/buy)).
 
-I'm using Fedora 43 KDE Edition to daily driver, and perform test and benchmarks.
+I'm using Fedora 44 KDE Edition to daily driver, and perform test and benchmarks.
 
 > [!NOTE]
 > If you find another issues or solution for every variant ("Base", Pro, 360, 360 Pro, Ultra), let us know! Contributions are welcome!
@@ -14,7 +14,7 @@ I'm using Fedora 43 KDE Edition to daily driver, and perform test and benchmarks
 
 ## Known issues
 
-### Really slow charging / Slow wake from sleep
+### Really slow charging
 
 #### Description
 - AC adapter provides small charging rate while in Linux;
@@ -59,25 +59,17 @@ I'm using Fedora 43 KDE Edition to daily driver, and perform test and benchmarks
 
 ---
 
-### Built-in monitor screen brightness changes struggles
+### Built-in monitor screen brightness changes struggles / Slow wake from sleep
 
 #### Description
 - When the screen brightness change hotkey is pressed the screen brightness takes a second to apply.
 - If the hotkey is kept pressed the brightness screen intensity jumps to a higher intensity instead of increasing gradually.
 
+#### Workaround
+- Adding `acpi.ec_delay=50` to the kernel parameters significantly decreases the ACPI notification delay. Thanks @FatGrizzly (see issue jusqua/galaxy-book4-linux#7).
+
 #### Thoughts
 - It works normally when using an external keyboard shortcut to change the screen brightness.
-
----
-
-### Battery disconnects from AC when fully charged
-
-#### Description
-- While the AC adapter is plugged and the battery is already full, intermittently, the AC disconnects from battery than reconnects again.
-
-#### Thoughts
-- This occurs since firmware update `P07CFP.020.250208.HQ`.
-- The charge cable can with malfunction.
 
 ---
 
